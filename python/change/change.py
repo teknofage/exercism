@@ -2,10 +2,7 @@
 coins = [1, 2, 3, 4, 5]
 k = 7
 
-
-
-
-def combinations(coins, target):
+def combinos(coins, target):
     valid_list = []
     
     def _combs(i, combination, sum_combination):
@@ -19,11 +16,12 @@ def combinations(coins, target):
     _combs(0, [], 0)
     return valid_list
 
-combinations(coins, 3)
+combinos(coins, 3)
 
-print(combinations(coins, k))
+print(combinos(coins, k))
 
-def find_fewest_coins(combinations):
+def find_fewest_coins(coins, target):
+    combinations = combinos(coins, target)
     smallest_comb = combinations[0]
     for combination in combinations:
         #compare combination to previous smallest combination
@@ -31,4 +29,4 @@ def find_fewest_coins(combinations):
             smallest_comb = combination
     return smallest_comb
     
-print(find_fewest_coins(combinations(coins, k)))
+# print(find_fewest_coins(combinations(coins, k)))
