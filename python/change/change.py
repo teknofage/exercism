@@ -1,6 +1,9 @@
+import sys
 
-coins = [1, 2, 3, 4, 5]
-k = 7
+sys.setrecursionlimit(3000)
+
+coins = [5,10]
+k = 94
 
 def combinos(coins, target):
     valid_list = []
@@ -10,7 +13,7 @@ def combinos(coins, target):
             valid_list.append(combination)
         else: 
             for j in range(i, len(coins)):
-                if sum_combination <= target:
+                if sum_combination + coins[j] <= target:
                     _combs(j, combination + [coins[j]], sum_combination + coins[j])
                     
     _combs(0, [], 0)
@@ -22,6 +25,8 @@ print(combinos(coins, k))
 
 def find_fewest_coins(coins, target):
     combinations = combinos(coins, target)
+    if len(combinations) == 0:
+        raise ValueError "Computer says no."
     smallest_comb = combinations[0]
     for combination in combinations:
         #compare combination to previous smallest combination
@@ -29,4 +34,3 @@ def find_fewest_coins(coins, target):
             smallest_comb = combination
     return smallest_comb
     
-# print(find_fewest_coins(combinations(coins, k)))
