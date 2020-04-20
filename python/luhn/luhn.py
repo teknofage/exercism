@@ -68,10 +68,8 @@ class Luhn:
             print (total)
         total = sum(number)    
         print(number)
-        if total % 10 == 0:
-            return True 
-        else:
-            return False
+        return total % 10 == 0
+        
                 
                 
 
