@@ -65,7 +65,8 @@ class Luhn:
                 number[i] = number[i] * 2
                 if i > 9:
                     number[i] = number[i] - 9
-        total += i
+            total += i
+            print (total)
         if total % 10 == 0:
             return True 
         else:
