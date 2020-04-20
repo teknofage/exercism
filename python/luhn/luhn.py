@@ -59,7 +59,7 @@ class Luhn:
             return False
         total = 0
         
-        for i in range(0, len(number), 2):
+        for i in range(len(number)-1, 0, -2):
             
             if i % 2 == 0:
                 number[i] = number[i] * 2
@@ -72,8 +72,8 @@ class Luhn:
         else:
             return False
                 
-    
-    
+                
+
     
     
     def num_list(self, card_num):
