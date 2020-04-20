@@ -34,9 +34,14 @@ Sum the digits
 57 is not evenly divisible by 10, so this number is not valid.
 
 Exception messages
-Sometimes it is necessary to raise an exception. When you do this, you should include a meaningful error message to indicate what the source of the error is. This makes your code more readable and helps significantly with debugging. Not every exercise will require you to raise an exception, but for those that do, the tests will only pass if you include a message.
+Sometimes it is necessary to raise an exception. When you do this, you should 
+include a meaningful error message to indicate what the source of the error is. 
+This makes your code more readable and helps significantly with debugging. 
+Not every exercise will require you to raise an exception, but for those that 
+do, the tests will only pass if you include a message.
 
-To raise a message with an exception, just write it as an argument to the exception type. For example, instead of raise Exception, you should write:
+To raise a message with an exception, just write it as an argument to the 
+exception type. For example, instead of raise Exception, you should write:
 
 raise Exception("Meaningful message indicating the source of the error")
 
@@ -49,16 +54,19 @@ class Luhn:
         self.card_num = card_num
 
     def valid(self):
-        number = self.num_list(card_num)
+        number = self.num_list(self.card_num)
+        if number == False:
+            return False
         total = 0
         
-        for i in number:
-            if i % 2 = 0:
-                i = i * 2
+        for i in range(0, len(number), 2):
+            
+            if i % 2 == 0:
+                number[i] = number[i] * 2
                 if i > 9:
-                    i = i - 9
+                    number[i] = number[i] - 9
         total += i
-        if total % 10 = 0:
+        if total % 10 == 0:
             return True 
         else:
             return False
@@ -73,7 +81,7 @@ class Luhn:
         converted_num = []
         
         if len(card_num) < 2:
-            return None
+            return False
         else:
             for i in card_num:
                 if i.isnumeric():
@@ -82,7 +90,7 @@ class Luhn:
                     converted_num.append(int(i)) 
                     
                 elif i != " ":
-                    return None
+                    return False
                 
         return converted_num
     
