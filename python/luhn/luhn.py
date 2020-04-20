@@ -58,13 +58,16 @@ class Luhn:
         if number == False:
             return False
         total = 0
+        print(number)
         
         for i in range(len(number)-2, -1, -2):
             number[i] = number[i] * 2
             if number[i] > 9:
                 number[i] = number[i] - 9
-            total += number[i]
+            
             print (total)
+        total = sum(number)    
+        print(number)
         if total % 10 == 0:
             return True 
         else:
